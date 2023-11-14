@@ -1,0 +1,13 @@
+---
+- name: configure IP address
+  hosts: RBranch1
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: SET IP ADDRESS
+      ios_config:
+        parents: "interface GigabitEthernet0/0"
+        lines:
+        - ip address 1.0.0.2
+        - no shutdown
